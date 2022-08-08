@@ -1,45 +1,84 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+    <h2>Text Input</h2>
+    <input v-model="text"> {{ text }}
+
+    <h2>Checkbox</h2>
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">Checked: {{ checked }}</label>
+
+    <!--
+      multiple checkboxes can bind to the same
+      array v-model value
+    -->
+    <h2>Multi Checkbox</h2>
+
+    <ul v-if="names && names.length>0">
+      <li v-for="item of names" :key="item.id">
+        <input type="checkbox"  :value="item.name"  v-model="checkedNames">
+        <label>{{item.name}}</label>
+      </li>
     </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <p>Checked names: {{ checkedNames }}</p>
+
+    <h2>Radio</h2>
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <br>
+    <input type="radio" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <br>
+    <span>Picked: {{ picked }}</span>
+
+    <h2>Select</h2>
+    <select v-model="selected">
+      <option disabled value="">Please select one</option>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+
+    <h2>Multi Select</h2>
+    <select v-model="multiSelected" multiple style="width:100px">
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <span>Selected: {{ multiSelected }}</span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  data() {
+    return {
+      text: 'Edit me',
+      checked: true,
+      names: [
+        {id:1,name:'Jack', selected:false},
+        {id:2,name:'Jack2',selected:false},
+        {id:3,name:'Jack3',selected:false},
+      ],
+      checkedNames:[],
+      picked: 'One',
+      selected: 'A',
+      multiSelected: ['A']
+    }
+  },
   props: {
-    msg: String
+    msg: String,
+  },
+  methods: {
+   onCLick() {
+     console.log("VV222",this.props.msg)
+   }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
