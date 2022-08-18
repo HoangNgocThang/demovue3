@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button @click="onCLick">click</button>
     <h2>Text Input</h2>
     <input v-model="text"> {{ text }}
 
@@ -65,15 +66,18 @@ export default {
       checkedNames:[],
       picked: 'One',
       selected: 'A',
-      multiSelected: ['A']
+      multiSelected: ['A'],
     }
   },
   props: {
     msg: String,
   },
+  mounted() {
+  },
   methods: {
    onCLick() {
-     console.log("VV222",this.props.msg)
+     // console.log("VV222",this.props.msg)
+     alert(this.$props.msg)
    }
   }
 }

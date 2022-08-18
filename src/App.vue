@@ -5,7 +5,7 @@
   <ComponentB/>
 
   <br/>
-  <!--  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
   <br/>
 
   <br/>
@@ -15,30 +15,34 @@
   <br/>
   <ChildComp @em1="(msg)=> call1(msg)"/>
   <br/>
-
   <p>{{ childMsg }}</p>
 
   <br/>
-  <TestForm/>
+<!--  <TestForm/>-->
+  <br/>
+
+  <TestWatcher/>
 
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+ // import HelloWorld from './components/HelloWorld.vue'
 // import QuizForm from './components/QuizForm';
 // import TestListCom from "@/components/TestListCom";
 import ChildComp from './components/ChildComp';
-import TestForm from "@/components/TestForm";
+// import TestForm from "@/components/TestForm";
 import ComponentA from "@/components/ComponentA";
 import ComponentB from "@/components/ComponentB";
+ import TestWatcher from "@/components/TestWatcher";
 
 export default {
   name: 'App',
   components: {
+    TestWatcher,
     ComponentB,
     ComponentA,
-    TestForm,
-    // HelloWorld,
+    // TestForm,
+   // HelloWorld,
     // QuizForm
     ChildComp,
   },

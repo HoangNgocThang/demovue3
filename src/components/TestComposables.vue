@@ -1,11 +1,11 @@
 <template>
-<h1></h1>
+<h1>{{ msg }}</h1>
 </template>
 
-<script>
-export default {
-  name: "TestComposables"
-}
+<script setup>
+import {ref} from 'vue';
+const msg= ref('heelo')
+
 </script>
 
 <style scoped>
