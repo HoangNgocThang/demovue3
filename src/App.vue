@@ -18,6 +18,9 @@
   <p>{{ childMsg }}</p>
 
   <br/>
+
+  <SelectYear @selectOneYear="(y)=>call2(y)"/>
+  <br/>
 <!--  <TestForm/>-->
   <br/>
 
@@ -34,10 +37,12 @@ import ChildComp from './components/ChildComp';
 import ComponentA from "@/components/ComponentA";
 import ComponentB from "@/components/ComponentB";
  import TestWatcher from "@/components/TestWatcher";
+ import SelectYear from "@/components/SelectYear";
 
 export default {
   name: 'App',
   components: {
+    SelectYear,
     TestWatcher,
     ComponentB,
     ComponentA,
@@ -72,6 +77,9 @@ export default {
     call1(msg) {
       this.childMsg = msg
     },
+    call2(y) {
+      alert(y)
+    }
   },
   watch: {
     count(newCount) {
