@@ -5,7 +5,7 @@
   <ComponentB/>
 
   <br/>
-<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+  <!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
   <br/>
 
   <br/>
@@ -24,32 +24,39 @@
 <!--  <TestForm/>-->
   <br/>
 
-  <TestWatcher/>
+  <br/>
+  <!--  <TestWatcher/>-->
+  <br/>
 
+  <br/>
+  <TestVueX/>
+  <br/>
 </template>
 
 <script>
- // import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 // import QuizForm from './components/QuizForm';
 // import TestListCom from "@/components/TestListCom";
 import ChildComp from './components/ChildComp';
 // import TestForm from "@/components/TestForm";
 import ComponentA from "@/components/ComponentA";
 import ComponentB from "@/components/ComponentB";
- import TestWatcher from "@/components/TestWatcher";
+ // import TestWatcher from "@/components/TestWatcher";
  import SelectYear from "@/components/SelectYear";
-
+// import TestWatcher from "@/components/TestWatcher";
+import TestVueX from "@/components/TestVueX";
 export default {
   name: 'App',
   components: {
     SelectYear,
-    TestWatcher,
+    // TestWatcher,
     ComponentB,
     ComponentA,
     // TestForm,
-   // HelloWorld,
+    // HelloWorld,
     // QuizForm
     ChildComp,
+    TestVueX
   },
   data() {
     return {
@@ -91,13 +98,11 @@ export default {
         this.textClass = 'text-green'
       }
     },
-
     // childMsg(newValue) {
     //   if (newValue == "thang") {
     //     this.childMsg = "thien"
     //   }
     // }
-
   }
 }
 </script>
